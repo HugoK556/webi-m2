@@ -1,101 +1,48 @@
-// MISION 1 - EL DESPERTAR DEL DOM / HUGO COBOS GUTIERREZ INSO3ºB
-const buscador = document.querySelector("#buscador");
-const peliculas = document.querySelectorAll(".pelicula");
-const botonesComprar = document.querySelectorAll(".comprar");
+ // MISION 2 - ASYNC ODYSSEY / HUGO COBOS GUTIERREZ INSO3ºB
+const API_URL = "https://www.themealdb.com/api/json/v1/1";
 
-const botonTodos = document.querySelector("#todos");
-const botonAccion = document.querySelector("#accion");
-const botonRomance = document.querySelector("#romance");
-const botonAventura = document.querySelector("#aventura");
+// Funcion para pedir datos a la API
+async function pedirDatos(url) {
+    try {
+        const respuesta = await fetch(url);
 
-const cantidad = document.querySelector("#incrementar");
-const botonVaciar = document.querySelector("#vaciar");
-const mensaje = document.querySelector("#mensaje");
-
-let numeroPeliculas = 0; // Numero de peliculas en el carrito
-
-// BUSCADOR
-buscador.addEventListener("input", function () { // Ejecuta la funcion cuando escribimos en el buscador
-
-    const texto = buscador.value.toLowerCase(); // texto = lo que escribas en minusculas
-
-    for (const pelicula of peliculas) { // Bucle para las peliculas
-
-        const nombre = pelicula.querySelector("h3").textContent.toLowerCase(); // Nombre de la pelicula
-
-        if (nombre.includes(texto)) { // Comprueba si el nombre contiene el texto buscado
-            pelicula.classList.remove("oculto"); // Muestra la pelicula
-        } else {
-            pelicula.classList.add("oculto"); // Oculta la pelicula
-        }
-    }
-});
-
-// MOSTRAR TODAS
-botonTodos.addEventListener("click", function () {
-
-    for (const pelicula of peliculas) {
-        pelicula.classList.remove("oculto"); // Todas las peliculas visibles
-    }
-});
-
-// FILTRAR ACCION
-botonAccion.addEventListener("click", function () {
-    mostrarCategoria("accion"); // Llama a la funcion con el parametro de la categoria
-});
-
-// FILTRAR ROMANCE
-botonRomance.addEventListener("click", function () {
-    mostrarCategoria("romance");
-});
-
-// FILTRAR AVENTURA
-botonAventura.addEventListener("click", function () {
-    mostrarCategoria("aventura");
-});
-
-// FUNCION PARA MOSTRAR UNA CATEGORIA
-function mostrarCategoria(categoria) { // Recibe la categoria
-
-    for (const pelicula of peliculas) {
-
-        const categorias = pelicula.getAttribute("categoria"); // Obtiene las categorias de la peliculas
-
-        if (categorias.includes(categoria)) { // Comprueba si la pelicula pertenece a la categoria
-            pelicula.classList.remove("oculto");
-        } else {
-            pelicula.classList.add("oculto");
+        if (!respuesta.ok) {
+            throw new Error("Error al obtener los datos");
         }
 
-    }
+        const datos = await respuesta.json();
+        return datos;
 
+    } catch (error) {
+        console.error("Error al conectar con la API:", error.message);
+        throw error;
+    }
 }
 
-// AÑADIR AL CARRITO
-for (const boton of botonesComprar) { // Recorre todos los botones de comprar
+// Busca comidas por nombre
+export async function buscarComidas(nombre) {
+    const datos = await pedirDatos(`${API_URL}/search.php?s=${encodeURIComponent(nombre)}`);
 
-    boton.addEventListener("click", function () {
-        numeroPeliculas = numeroPeliculas + 1; // Suma una pelicula
-        cantidad.textContent = numeroPeliculas; // Actualiza el numero
-        mensaje.textContent = "Pelicula añadida al carrito."; // Mensaje
-    });
-
+    return datos.meals || [];
 }
 
-// VACIAR CARRITO
-botonVaciar.addEventListener("click", function () {
+// Busca comidas por pais
+export async function buscarPorPais(pais) {
+    const datos = await pedirDatos(`${API_URL}/filter.php?a=${encodeURIComponent(pais)}`);
 
-    numeroPeliculas = 0; // Pone el numero de peliculas a cero
-    cantidad.textContent = numeroPeliculas; // Actualiza el numero
-    mensaje.textContent = "El carrito esta vacío."; // Mensaje
+    return datos.meals || [];
+}
 
-});
+// Obtiene una comida aleatoria
+export async function obtenerComidaAleatoria() {
+    const datos = await pedirDatos(`${API_URL}/random.php`);
 
-// MODO OSCURO
-document.addEventListener("keydown", function (event) {
-    
-    if (event.key === "ñ" || event.key === "Ñ") { // Si se pulsa la letra ñ
-        document.body.classList.toggle("oscuro"); // Añade o quita la clase "oscuro"
-    }
+    return datos.meals ? datos.meals[0] : null;
+}
 
-});
+// Obtiene una receta completa por su ID
+export async function obtenerReceta(id) {
+    const datos = await pedirDatos(`${API_URL}/lookup.php?i=${encodeURIComponent(id)}`);
+
+    return datos.meals ? datos.meals[0] : null;
+}
