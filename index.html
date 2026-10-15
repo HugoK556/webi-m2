@@ -1,11 +1,11 @@
-<!-- MISION 1 - EL DESPERTAR DEL DOM / HUGO COBOS GUTIERREZ INSO3ºB -->
+<!-- MISION 2 - ASYNC ODYSSEY / HUGO COBOS GUTIERREZ INSO3ºB -->
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <title>Mision 2 - Hugo</title>
-    <link rel="icon" href="img/miniatura.png">
+    <link rel="icon" href="src/img/miniatura.png">
     <link rel="stylesheet" href="src/style.css">
     <script src="src/app.js" defer></script>
 </head>
@@ -13,94 +13,71 @@
 <body>
 
     <header>
-        <h1>VIDEOCLUB</h1>
-        <p>Alquiler de peliculas</p>
+        <h1>COMIDAS</h1>
+        <p>Comidas del mundo</p>
     </header>
 
     <main>
 
         <section class="inicio">
-            <h2>PELICULAS</h2>
-
-            <label for="buscador">Buscar pelicula:</label> <!-- Etiqueta que identifica el campo de busqueda -->
+            
+            <label for="buscador">Buscar comida:</label> <!-- Etiqueta que identifica el campo de busqueda -->
             <input id="buscador"> <!-- Campo para escribir -->
 
-            <nav class="categorias">
-                <button id="todos">Todos</button>
-                <button id="accion">Accion</button>
-                <button id="romance">Romance</button>
-                <button id="aventura">Aventura</button>
-            </nav>
         </section>
 
-        <section id="peliculas">
+        <section id="comidas">
 
-            <section id="lista-peliculas" class="peliculas">
+            <section id="lista-comidas" class="comidas">
 
-                <article class="pelicula" categoria="accion romance">
-                    <h3>Chainsaw Man – The Movie: Reze Arc</h3>
-                    <img src="img/1.jpg" alt="Pelicula 1">
-                    <p>Accion / Romance</p>
-                    <p>12,99 €</p>
-                    <button class="comprar">Añadir al carrito</button>
+                <article class="comida">
+                    <h3>España</h3>
+                    <img src="src/img/1.png" alt="España">
+                    <button class="comprar">Receta</button>
                 </article>
                 
-                <article class="pelicula" categoria="accion aventura">
-                    <h3>Akira</h3>
-                    <img src="img/2.jpg" alt="Pelicula 2">
-                    <p>Accion / Aventura</p>
-                    <p>10,99 €</p>
-                    <button class="comprar">Añadir al carrito</button>
+                <article class="comida">
+                    <h3>Italia</h3>
+                    <img src="src/img/2.webp" alt="Italia">
+                    <button class="comprar">Receta</button>
                 </article>
 
-                <article class="pelicula" categoria="romance aventura">
-                    <h3>Your Name</h3>
-                    <img src="img/3.jpg" alt="Pelicula 3">
-                    <p>Romance / Aventura</p>
-                    <p>10,99 €</p>
-                    <button class="comprar">Añadir al carrito</button>
+                <article class="comida">
+                    <h3>Japon</h3>
+                    <img src="src/img/3.webp" alt="Japon">
+                    <button class="comprar">Receta</button>
                 </article>
 
-                <article class="pelicula" categoria="accion romance">
-                    <h3>Porco Rosso</h3>
-                    <img src="img/4.jpg" alt="Pelicula 4">
-                    <p>Accion / Romance</p>
-                    <p>9,99 €</p>
-                    <button class="comprar">Añadir al carrito</button>
+                <article class="comida">
+                    <h3>China</h3>
+                    <img src="src/img/4.webp" alt="China">
+                    <button class="comprar">Receta</button>
                 </article>
 
-                <article class="pelicula" categoria="romance aventura">
-                    <h3>Violet Evergarden: The Movie</h3>
-                    <img src="img/5.jpg" alt="Pelicula 5">
-                    <p>Romance / Aventura</p>
-                    <p>12,99 €</p>
-                    <button class="comprar">Añadir al carrito</button>
+                <article class="comida">
+                    <h3>Peru</h3>
+                    <img src="src/img/5.png" alt="Peru">
+                    <button class="comprar">Receta</button>
                 </article>
 
-                <article class="pelicula" categoria="accion aventura">
-                    <h3>Pokémon the Movie: I Choose You!</h3>
-                    <img src="img/6.jpg" alt="Pelicula 6">
-                    <p>Accion / Aventura</p>
-                    <p>11,99 €</p>
-                    <button class="comprar">Añadir al carrito</button>
+                <article class="comida">
+                    <h3>Vietnam</h3>
+                    <img src="src/img/6.webp" alt="Vietnam">
+                    <button class="comprar">Receta</button>
                 </article>
 
             </section>
-
-            <p id="mensaje"></p>
-
+            
         </section>
 
-        <section id="carrito">
-            <h2>Carrito</h2>
-            <p>Peliculas añadidas: <strong id="incrementar">0</strong></p>
-            <button id="vaciar">Vaciar carrito</button>
+        <section id="aleatorio">
+            <button id="boton">Comida aleatoria</button>
         </section>
 
     </main>
 
     <footer>
-        <p>Mision 1 - El Despertar del DOM / Hugo Cobos Gutierrez INSO3ºB</p>
+        <p>Mision 2 - Async Odyssey / Hugo Cobos Gutierrez INSO3ºB</p>
     </footer>
 
 </body>
