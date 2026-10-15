@@ -80,38 +80,22 @@ footer {
     padding: 10px;
 }
 
-.oculto {
-    display: none;
-}
-
-#mensaje {
-    text-align: center;
-}
-
 #resultados {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 }
 
-#resultados .comida {
-    background-color: rgb(242, 242, 242);
-    padding: 20px;
-    text-align: center;
-    border: 1px solid black;
-}
-
-#resultados img {
-    width: 100%;
-    height: 200px;
+#resultados .comida img {
+    height: 180px;
     object-fit: cover;
 }
 
-#resultados h2,
-#resultados p {
-    grid-column: 1 / -1;
+#resultados .datos-comida {
+    margin-top: 10px;
 }
 
-#resultados .ingredientes {
-    text-align: left;
+#resultados > button { /* Boton en el medio */
+    grid-column: 1 / -1; /* Ocupa todo */
+    justify-self: center; /* Que este centrado */
 }
