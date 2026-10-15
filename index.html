@@ -1,13 +1,107 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>mi-proyecto</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
-  </body>
+<!-- MISION 1 - EL DESPERTAR DEL DOM / HUGO COBOS GUTIERREZ INSO3ºB -->
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mision 1 - Hugo</title>
+    <link rel="icon" href="img/miniatura.png">
+    <link rel="stylesheet" href="src/style.css">
+    <script src="src/app.js" defer></script>
+</head>
+
+<body>
+
+    <header>
+        <h1>VIDEOCLUB</h1>
+        <p>Alquiler de peliculas</p>
+    </header>
+
+    <main>
+
+        <section class="inicio">
+            <h2>PELICULAS</h2>
+
+            <label for="buscador">Buscar pelicula:</label> <!-- Etiqueta que identifica el campo de busqueda -->
+            <input id="buscador"> <!-- Campo para escribir -->
+
+            <nav class="categorias">
+                <button id="todos">Todos</button>
+                <button id="accion">Accion</button>
+                <button id="romance">Romance</button>
+                <button id="aventura">Aventura</button>
+            </nav>
+        </section>
+
+        <section id="peliculas">
+
+            <section id="lista-peliculas" class="peliculas">
+
+                <article class="pelicula" categoria="accion romance">
+                    <h3>Chainsaw Man – The Movie: Reze Arc</h3>
+                    <img src="img/1.jpg" alt="Pelicula 1">
+                    <p>Accion / Romance</p>
+                    <p>12,99 €</p>
+                    <button class="comprar">Añadir al carrito</button>
+                </article>
+                
+                <article class="pelicula" categoria="accion aventura">
+                    <h3>Akira</h3>
+                    <img src="img/2.jpg" alt="Pelicula 2">
+                    <p>Accion / Aventura</p>
+                    <p>10,99 €</p>
+                    <button class="comprar">Añadir al carrito</button>
+                </article>
+
+                <article class="pelicula" categoria="romance aventura">
+                    <h3>Your Name</h3>
+                    <img src="img/3.jpg" alt="Pelicula 3">
+                    <p>Romance / Aventura</p>
+                    <p>10,99 €</p>
+                    <button class="comprar">Añadir al carrito</button>
+                </article>
+
+                <article class="pelicula" categoria="accion romance">
+                    <h3>Porco Rosso</h3>
+                    <img src="img/4.jpg" alt="Pelicula 4">
+                    <p>Accion / Romance</p>
+                    <p>9,99 €</p>
+                    <button class="comprar">Añadir al carrito</button>
+                </article>
+
+                <article class="pelicula" categoria="romance aventura">
+                    <h3>Violet Evergarden: The Movie</h3>
+                    <img src="img/5.jpg" alt="Pelicula 5">
+                    <p>Romance / Aventura</p>
+                    <p>12,99 €</p>
+                    <button class="comprar">Añadir al carrito</button>
+                </article>
+
+                <article class="pelicula" categoria="accion aventura">
+                    <h3>Pokémon the Movie: I Choose You!</h3>
+                    <img src="img/6.jpg" alt="Pelicula 6">
+                    <p>Accion / Aventura</p>
+                    <p>11,99 €</p>
+                    <button class="comprar">Añadir al carrito</button>
+                </article>
+
+            </section>
+
+            <p id="mensaje"></p>
+
+        </section>
+
+        <section id="carrito">
+            <h2>Carrito</h2>
+            <p>Peliculas añadidas: <strong id="incrementar">0</strong></p>
+            <button id="vaciar">Vaciar carrito</button>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Mision 1 - El Despertar del DOM / Hugo Cobos Gutierrez INSO3ºB</p>
+    </footer>
+
+</body>
 </html>
