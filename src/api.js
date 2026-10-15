@@ -8,7 +8,7 @@ async function pedirDatos(url) {
     try {
         const aleatoria = url.includes("/random.php"); // Comprueba si es una peticion aleatoria
 
-        const guardado = aleatoria ? null : localStorage.getItem(url); // Comprueba si es una peticion aleatoria
+        const guardado = aleatoria ? null : localStorage.getItem(url); // Busca los datos guardados si no es una peticion aleatoria
 
         // Si existen datos guardados los retorno
         if (guardado) {
